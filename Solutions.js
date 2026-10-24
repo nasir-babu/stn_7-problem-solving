@@ -93,3 +93,24 @@ const solution = function (str) {
 };
 
 console.log(solution("world"));
+
+
+// ----------------------------------------------------------------------------
+// Problem 6: Sum of Positive
+// ----------------------------------------------------------------------------
+
+const positiveSum = function (arr) {
+  return arr.reduce((sum, num) => (num > 0 ? sum + num : sum), 0);
+};
+
+console.log(positiveSum([1, -4, 7, 12]));
+
+// ----------------------------------------------------------------------------
+// Problem 7: Grasshopper — Summation
+// ----------------------------------------------------------------------------
+
+const summation = function (num) {
+  return (num * (num + 1)) / 2;
+};
+
+console.log(summation(8));
