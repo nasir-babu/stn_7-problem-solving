@@ -240,6 +240,141 @@ const moveZeroes = function (nums) {
   }
 };
 
-const nums14 = [0, 1, 0, 3, 12];
+const nums14 = [0, 1, 0, 3, 12, 0];
 moveZeroes(nums14);
 console.log(nums14);
+
+// ----------------------------------------------------------------------------
+// Problem 15: Merge Sorted Array
+// ----------------------------------------------------------------------------
+
+const merge = function (nums1, m, nums2, n) {
+  let p1 = m - 1;
+  let p2 = n - 1;
+  let p = m + n - 1;
+
+  while (p1 >= 0 && p2 >= 0) {
+    if (nums1[p1] > nums2[p2]) {
+      nums1[p--] = nums1[p1--];
+    } else {
+      nums1[p--] = nums2[p2--];
+    }
+  }
+
+  while (p2 >= 0) {
+    nums1[p--] = nums2[p2--];
+  }
+};
+
+const nums15 = [1, 2, 3, 0, 0, 0];
+merge(nums15, 3, [2, 5, 6], 3);
+console.log(nums15);
+// ----------------------------------------------------------------------------
+// Problem 16: 3Sum
+// ----------------------------------------------------------------------------
+
+const threeSum = function (nums) {
+  const result = [];
+  nums.sort((a, b) => a - b);
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+    let left = i + 1;
+    let right = nums.length - 1;
+
+    while (left < right) {
+      const sum = nums[i] + nums[left] + nums[right];
+      if (sum === 0) {
+        result.push([nums[i], nums[left], nums[right]]);
+        while (left < right && nums[left] === nums[left + 1]) left++;
+        while (left < right && nums[right] === nums[right - 1]) right--;
+        left++;
+        right--;
+      } else if (sum < 0) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+  }
+  return result;
+};
+
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+// ----------------------------------------------------------------------------
+// Problem 17: Plus One
+// ----------------------------------------------------------------------------
+
+const plusOne = function (digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i]++;
+      return digits;
+    }
+    digits[i] = 0;
+  }
+  digits.unshift(1);
+  return digits;
+};
+
+console.log(plusOne([1, 2, 9]));
+// ----------------------------------------------------------------------------
+// Problem 18: Reverse String
+// ----------------------------------------------------------------------------
+
+const reverseString = function (s) {
+  let left = 0;
+  let right = s.length - 1;
+  while (left < right) {
+    const temp = s[left];
+    s[left] = s[right];
+    s[right] = temp;
+    left++;
+    right--;
+  }
+};
+const s18 = ["h", "e", "l", "l", "o"];
+reverseString(s18);
+console.log(s18);
+
+// ----------------------------------------------------------------------------
+// Problem 19: Length of Last Word
+// ----------------------------------------------------------------------------
+
+const lengthOfLastWord = function (s) {
+  let length = 0;
+  let i = s.length - 1;
+
+  while (i >= 0 && s[i] === " ") {
+    i--;
+  }
+
+  while (i >= 0 && s[i] !== " ") {
+    length++;
+    i--;
+  }
+
+  return length;
+};
+
+console.log(lengthOfLastWord("Hello World"));
+// ----------------------------------------------------------------------------
+// Problem 20: Longest Common Prefix
+// ----------------------------------------------------------------------------
+
+const longestCommonPrefix = function (strs) {
+  if (!strs || strs.length === 0) return "";
+  let prefix = strs[0];
+
+  for (let i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      prefix = prefix.substring(0, prefix.length - 1);
+      if (prefix === "") return "";
+    }
+  }
+
+  return prefix;
+};
+
+console.log(longestCommonPrefix(["flower", "flow", "flight"]));
