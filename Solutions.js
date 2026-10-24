@@ -1,7 +1,4 @@
 
-
-
-
 // ============================================================================
 // TN-7 Problem Solving Assessment List - Solutions.js
 // Written in JavaScript (ES6)
@@ -11,10 +8,7 @@
 // ----------------------------------------------------------------------------
 // Problem 1: Staircase
 // ----------------------------------------------------------------------------
-/**
- * @param {number} n
- * @return {string}
- */
+
 const staircase = function(n) {
     const result = [];
     for (let i = 1; i <= n; i++) {
@@ -30,10 +24,7 @@ console.log(staircase(4))
 // ----------------------------------------------------------------------------
 // Problem 2: Grading Students
 // ----------------------------------------------------------------------------
-/**
- * @param {number[]} grades
- * @return {number[]}
- */
+
 const gradingStudents = function(grades) {
     return grades.map(grade => {
         if (grade < 38) {
@@ -54,10 +45,7 @@ console.log(gradingStudents([73, 67, 38, 33]));
 // ----------------------------------------------------------------------------
 // Problem 3: Time Conversion
 // ----------------------------------------------------------------------------
-/**
- * @param {string} s
- * @return {string}
- */
+
 const timeConversion = function(s) {
     const modifier = s.slice(-2);
     let hours = parseInt(s.slice(0, 2), 10);
@@ -81,4 +69,20 @@ const timeConversion = function(s) {
 
 console.log(timeConversion("07:05:45PM"));
 
+
+
+
+//----------------------------------------------------------------------------
+// Problem 4: String Repeat
+// ----------------------------------------------------------------------------
+/**
+ * @param {number} n
+ * @param {string} s
+ * @return {string}
+ */
+const repeatStr = function (n, s) {
+  return s.repeat(n);
+};
+
+console.log(repeatStr(3, "ha"));
 
