@@ -182,3 +182,64 @@ console.log(
     [3, 2, 1],
   ]),
 );
+
+
+// ----------------------------------------------------------------------------
+// Problem 12: Remove Duplicates from Sorted Array
+// ----------------------------------------------------------------------------
+
+const removeDuplicates = function (nums) {
+  if (nums.length === 0) return 0;
+  let k = 0;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[k]) {
+      k++;
+      nums[k] = nums[i];
+    }
+  }
+  return k + 1;
+};
+const nums12 = [1, 1, 2];
+const k12 = removeDuplicates(nums12);
+console.log(
+  "Unique count (k):",
+  k12,
+  "| Modified Array:",
+  nums12.slice(0, k12),
+);
+
+// ----------------------------------------------------------------------------
+// Problem 13: Contains Duplicate
+// ----------------------------------------------------------------------------
+
+const containsDuplicate = function (nums) {
+  const seen = new Set();
+  for (const num of nums) {
+    if (seen.has(num)) {
+      return true;
+    }
+    seen.add(num);
+  }
+  return false;
+};
+
+console.log(containsDuplicate([1, 2, 3, 1]));
+// ----------------------------------------------------------------------------
+// Problem 14: Move Zeroes
+// ----------------------------------------------------------------------------
+
+const moveZeroes = function (nums) {
+  let insertPos = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[insertPos++] = nums[i];
+    }
+  }
+  for (let i = insertPos; i < nums.length; i++) {
+    nums[i] = 0;
+  }
+};
+
+const nums14 = [0, 1, 0, 3, 12];
+moveZeroes(nums14);
+console.log(nums14);
