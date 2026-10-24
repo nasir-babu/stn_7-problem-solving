@@ -75,14 +75,21 @@ console.log(timeConversion("07:05:45PM"));
 //----------------------------------------------------------------------------
 // Problem 4: String Repeat
 // ----------------------------------------------------------------------------
-/**
- * @param {number} n
- * @param {string} s
- * @return {string}
- */
+
 const repeatStr = function (n, s) {
   return s.repeat(n);
 };
 
 console.log(repeatStr(3, "ha"));
 
+
+
+// ----------------------------------------------------------------------------
+// Problem 5: Reversed Strings
+// ----------------------------------------------------------------------------
+
+const solution = function (str) {
+  return str.split("").reverse().join("");
+};
+
+console.log(solution("world"));
