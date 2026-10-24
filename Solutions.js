@@ -115,6 +115,15 @@ const summation = function (num) {
 
 console.log(summation(8));
 
+// ----------------------------------------------------------------------------
+// Problem 8: Convert a Boolean to a String
+// ----------------------------------------------------------------------------
+
+const booleanToString = function (b) {
+  return b.toString();
+};
+
+console.log(booleanToString(true));
 
 // ----------------------------------------------------------------------------
 // Problem 9: Fizz Buzz
