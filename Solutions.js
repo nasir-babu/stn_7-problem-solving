@@ -114,3 +114,62 @@ const summation = function (num) {
 };
 
 console.log(summation(8));
+
+
+// ----------------------------------------------------------------------------
+// Problem 9: Fizz Buzz
+// ----------------------------------------------------------------------------
+
+const fizzBuzz = function (n) {
+  const result = [];
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push("FizzBuzz");
+    } else if (i % 3 === 0) {
+      result.push("Fizz");
+    } else if (i % 5 === 0) {
+      result.push("Buzz");
+    } else {
+      result.push(i.toString());
+    }
+  }
+  return result;
+};
+
+console.log(fizzBuzz(15));
+// ----------------------------------------------------------------------------
+// Problem 10: Running Sum of 1D Array
+// ----------------------------------------------------------------------------
+
+const runningSum = function (nums) {
+  const result = [];
+  let sum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+    result.push(sum);
+  }
+  return result;
+};
+
+console.log(runningSum([1, 2, 3, 4]));
+// ----------------------------------------------------------------------------
+// Problem 11: Richest Customer Wealth
+// ----------------------------------------------------------------------------
+
+const maximumWealth = function (accounts) {
+  let maxWealth = 0;
+  for (let i = 0; i < accounts.length; i++) {
+    const currentWealth = accounts[i].reduce((sum, val) => sum + val, 0);
+    if (currentWealth > maxWealth) {
+      maxWealth = currentWealth;
+    }
+  }
+  return maxWealth;
+};
+
+console.log(
+  maximumWealth([
+    [1, 2, 3],
+    [3, 2, 1],
+  ]),
+);
